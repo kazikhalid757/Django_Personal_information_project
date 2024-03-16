@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-link a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contact Details</h2>
+    <p>Name: {{ contact.name }}</p>
+    <p>Mobile Number: {{ contact.mobile_number }}</p>
+    {% if contact.picture %}
+    <p>Picture: <img src="{{ contact.picture.url }}" alt="Contact Picture"></p>
+    {% endif %}
+    <p>Relation with Me: {{ contact.relationship }}</p>
+    <p>Alternative Mobile Number: {{ contact.alternative_mobile_number }}</p>
+    <p>Present Address: {{ contact.present_address }}</p>
+    <p>Permanent Address: {{ contact.permanent_address }}</p>
+    <p>Date of Birth: {{ contact.date_of_birth }}</p>
+    <p>Profession: {{ contact.profession }}</p>
+    <p>About: {{ contact.about }}</p>
+    <p>Facebook: <a href="{{ contact.facebook }}" target="_blank">{{ contact.facebook }}</a></p>
+    <p>LinkedIn: <a href="{{ contact.linkedin }}" target="_blank">{{ contact.linkedin }}</a></p>
+    <p>Personal Website: <a href="{{ contact.personal_website }}" target="_blank">{{ contact.personal_website }}</a></p>
+    {% if contact.other_field %}
+    <p>Other Field: <a href="{{ contact.other_field.url }}" target="_blank">{{ contact.other_field.name }}</a></p>
+    {% endif %}
+    <a href="{% url 'edit_contact' contact.id %}">Edit</a> <!-- Link to edit page -->
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
