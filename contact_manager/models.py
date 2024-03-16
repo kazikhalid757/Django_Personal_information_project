@@ -20,3 +20,15 @@ class Contact(models.Model):
     personal_website = models.URLField(blank=True)
     other_field = models.FileField(upload_to='contact_files', blank=True, null=True)
 
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class Password(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='passwords')
+    url = models.URLField()
+    username = models.CharField(max_length=100)
+    website_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    password = models.CharField(max_length=100)  
+

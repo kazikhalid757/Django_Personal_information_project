@@ -71,13 +71,13 @@
         <input type="text" name="q" placeholder="Search contacts...">
         <button type="submit">Search</button>
     </form>
-        <!-- <a href="{% url 'add_contact' %}">Add Contact</a>
+        <a href="{% url 'add_contact' %}">Add Contact</a>
         <ul>
             {% for contact in contacts %}
                 <li>{{ contact.name }} - {{ contact.mobile_number }} <a href="{% url 'view_contact' contact.id %}">View</a></li>
             {% endfor %}
         </ul>
-    </div> -->
-    <a href="{% url 'personal_contracts' %}">Personal Contracts Area</a>
+    </div>
+    <a href="{% url 'home' %}">Back to Home</a>
 </body>
 </html>
